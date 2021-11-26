@@ -15,17 +15,19 @@ public class Libro {
     private int numeroPaginas;
     private String numeroReferencia;
     private int vecesPrestado;
+    private boolean esLibroDeTexto;
 
     /**
      * Fija el autor y el titulo del libro a los dados como parametro
      */
-    public Libro(String autorLibro, String tituloLibro, int numero)
+    public Libro(String autorLibro, String tituloLibro, int numero, boolean tipolibro)
     {
         autor = autorLibro;
         titulo = tituloLibro;
         numeroPaginas = numero;
         numeroReferencia = "";
         vecesPrestado = 0;
+        esLibroDeTexto = tipolibro;
     }
 
     public String getAutor() {
@@ -60,8 +62,15 @@ public class Libro {
 
     public String getDetalles() {
         String numeroDetalle = numeroReferencia;
+        String tipoLibro;
         if(numeroDetalle == "") {
             numeroDetalle = "ZZZ";    
+        }
+        if(esLibroDeTexto == true){
+            tipoLibro = "Es libro de texto";
+        }
+        else {
+            tipoLibro = "No es libro de texto";
         }
         String detalles = "Título:" + titulo + "Autor:" + autor + "Páginas:" + numeroPaginas + "Número de Referencia:" + numeroDetalle + "Número de veces prestado:" + vecesPrestado;
         return detalles;
@@ -74,6 +83,10 @@ public class Libro {
     public void imprimeAutor() {
         System.out.println(autor);
     }
+    
+    public boolean getEsLibroDeTexto(){
+        return esLibroDeTexto;
+    }
 
     public void imprimeTitulo() {
         System.out.println(titulo);
@@ -81,11 +94,19 @@ public class Libro {
 
     public void imprimeDetalles() {
         String numeroDetalle = numeroReferencia;
+        Boolean libroTexto = esLibroDeTexto;
+        String tipoLibro;
         if(numeroDetalle == "") {
             numeroDetalle = "ZZZ";    
         }
+        if(esLibroDeTexto == true){
+            tipoLibro = "Es libro de texto";
+        }
+        else {
+            tipoLibro = "No es libro de texto";
+        }
 
-        String detalles = "Título:" + titulo + "Autor:" + autor + "Páginas:" + numeroPaginas + "Número de Referencia:" + numeroDetalle + "Número de veces prestado:" + vecesPrestado;
+        String detalles = "Título:" + titulo + "Autor:" + autor + "Páginas:" + numeroPaginas + "Número de Referencia:" + numeroDetalle + "Número de veces prestado:" + vecesPrestado + "Tipo de libro:" + tipoLibro;
         System.out.println(detalles);
     }
 }
