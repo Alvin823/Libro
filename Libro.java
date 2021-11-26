@@ -72,6 +72,12 @@ public class Libro {
     }
     
     public void imprimeDetalles() {
+        if(numeroReferencia == "") {
+            numeroReferencia = "ZZZ";    
+        }
+        else {
+            numeroReferencia = numeroReferencia;
+        }
         String detalles = "Título:" + titulo + "Autor:" + autor + "Páginas:" + numeroPaginas + "Número de Referencia:" + numeroReferencia;;
         System.out.println(detalles);
     }
