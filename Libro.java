@@ -14,6 +14,7 @@ public class Libro {
     private String titulo;
     private int numeroPaginas;
     private String numeroReferencia;
+    private int vecesPrestado;
 
     /**
      * Fija el autor y el titulo del libro a los dados como parametro
@@ -24,58 +25,67 @@ public class Libro {
         titulo = tituloLibro;
         numeroPaginas = numero;
         numeroReferencia = "";
+        vecesPrestado = 0;
     }
-    
+
     public String getAutor() {
         return autor;
     }
-    
+
     public String getTitulo() {
         return titulo;
     }
-    
+
     public String getNumeroReferencia() {
         return numeroReferencia;
     }
-    
+
+    public void prestar(){
+        vecesPrestado = vecesPrestado + 1;
+    }
+
+    public int getVecesPrestado(){
+        return vecesPrestado;
+    }
+
     public void setNumeroReferencia(String numero) {
         if (numeroReferencia.length() < 3) {
             System.out.println("Longitud anterior demasiado corta");
         }
         else {
-              numeroReferencia = numero;   
+            numeroReferencia = numero;   
         }
-       
+
     }
-    
+
     public String getDetalles() {
         String numeroDetalle = numeroReferencia;
         if(numeroDetalle == "") {
             numeroDetalle = "ZZZ";    
         }
-        String detalles = "Título:" + titulo + "Autor:" + autor + "Páginas:" + numeroPaginas + "Número de Referencia:" + numeroReferencia;
+        String detalles = "Título:" + titulo + "Autor:" + autor + "Páginas:" + numeroPaginas + "Número de Referencia:" + numeroDetalle + "Número de veces prestado:" + vecesPrestado;
         return detalles;
     }
-    
+
     public int getNumeroPaginas() {
         return numeroPaginas;
     }
-    
+
     public void imprimeAutor() {
         System.out.println(autor);
     }
-    
+
     public void imprimeTitulo() {
         System.out.println(titulo);
     }
-    
+
     public void imprimeDetalles() {
         String numeroDetalle = numeroReferencia;
         if(numeroDetalle == "") {
             numeroDetalle = "ZZZ";    
         }
-        
-        String detalles = "Título:" + titulo + "Autor:" + autor + "Páginas:" + numeroPaginas + "Número de Referencia:" + numeroReferencia;;
+
+        String detalles = "Título:" + titulo + "Autor:" + autor + "Páginas:" + numeroPaginas + "Número de Referencia:" + numeroDetalle + "Número de veces prestado:" + vecesPrestado;
         System.out.println(detalles);
     }
 }
