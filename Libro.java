@@ -49,11 +49,9 @@ public class Libro {
     }
     
     public String getDetalles() {
-        if(numeroReferencia == "") {
-            numeroReferencia = "ZZZ";    
-        }
-        else {
-            numeroReferencia = numeroReferencia;
+        String numeroDetalle = numeroReferencia;
+        if(numeroDetalle == "") {
+            numeroDetalle = "ZZZ";    
         }
         String detalles = "Título:" + titulo + "Autor:" + autor + "Páginas:" + numeroPaginas + "Número de Referencia:" + numeroReferencia;
         return detalles;
@@ -72,12 +70,11 @@ public class Libro {
     }
     
     public void imprimeDetalles() {
-        if(numeroReferencia == "") {
-            numeroReferencia = "ZZZ";    
+        String numeroDetalle = numeroReferencia;
+        if(numeroDetalle == "") {
+            numeroDetalle = "ZZZ";    
         }
-        else {
-            numeroReferencia = numeroReferencia;
-        }
+        
         String detalles = "Título:" + titulo + "Autor:" + autor + "Páginas:" + numeroPaginas + "Número de Referencia:" + numeroReferencia;;
         System.out.println(detalles);
     }
